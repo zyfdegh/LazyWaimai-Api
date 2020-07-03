@@ -14,6 +14,9 @@
  Date: 01/13/2017 11:14:20 AM
 */
 
+create database lazy_waimai;
+use lazy_waimai;
+
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 

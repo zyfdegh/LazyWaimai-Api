@@ -45,6 +45,43 @@ composer global require "fxp/composer-asset-plugin:^1.3.1"
 composer install
 ```
 
+#### 3.1 运行
+```
+composer require "fxp/composer-asset-plugin:^1.3.1"
+
+# generate token from github
+
+./yii serve
+```
+访问 localhost:8080/index
+
+访问接口
+
+```sh
+curl localhost:8080/v1/settings
+
+# 关闭鉴权
+# LazyWaimai-Api/modules/v1/Module.php
+
+curl -X POST 'localhost:8080/v1/users?action=create_user' -H 'Http-Timestamp: ' \
+-H 'Content-Type: application/json' \
+-d '{"mobile": 13813003591, "password": 123456}'
+
+
+curl localhost:8080/v1/settings
+```
+
+配置 DB
+
+```sh
+docker run --name waimai -e MYSQL_ROOT_PASSWORD=lazywaimai -p 3306:3306 -d mysql:5.6 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+docker run -d --link waimai:db -p 3308:80 phpmyadmin/phpmyadmin
+
+# 还原数据
+docker exec -i some-mysql sh -c 'exec mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < /some/path/on/your/host/all-databases.sql
+```
+
 #### 4.配置数据库
 
 ###### 导入sql文件到数据库

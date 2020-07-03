@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=lazy_waimai',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=lazy_waimai',
     'username' => 'root',
-    'password' => '123456',
+    'password' => 'lazywaimai',
     'charset' => 'utf8',
 ];
