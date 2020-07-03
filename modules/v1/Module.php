@@ -44,15 +44,15 @@ class Module extends \yii\base\Module {
             $signature = Yii::$app->request->headers->get(Constants::HTTP_SIGNATURE);
             $appKey = Yii::$app->request->headers->get(Constants::HTTP_APP_KEY);
 
-            if ($httpTimeStamp === null || $versionName === null
-                || $deviceId === null || $requestType === null
-                || $signature === null || $appKey === null) {
-                throw new NotFoundHttpException('非法访问.');
-            }
+            // if ($httpTimeStamp === null || $versionName === null
+            //     || $deviceId === null || $requestType === null
+            //     || $signature === null || $appKey === null) {
+            //     throw new NotFoundHttpException('非法访问.');
+            // }
 
-            if (!$this->verifySignature($signature, $appKey)) {
-                throw new BadRequestHttpException("无效的请求参数");
-            }
+            // if (!$this->verifySignature($signature, $appKey)) {
+            //     throw new BadRequestHttpException("无效的请求参数");
+            // }
 
             return true;
         } else {
